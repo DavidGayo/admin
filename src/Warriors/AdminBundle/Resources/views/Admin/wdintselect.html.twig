@@ -1,0 +1,67 @@
+{% extends app.request.isXmlHttpRequest? "base.html.twig" : "frontend.html.twig" %}
+
+
+{% block body%}
+<div>
+   <div class="col-md-3">
+       <select class="form-control" id="{{men}}">
+         <option >seleccione submenu</option>
+         {% for prueba,dato in datosm %}
+         {% set a = dato.id %}
+          <option   value="{{ path ('admin_wdinttabla',{'id': a } ) }}">{{dato.nombre}}</option>  
+         {% endfor %}
+       </select>
+       <br />
+       </div>
+  </div>
+{% endblock %}
+
+{% block javascripts %}
+  <script>
+   
+   $(document).ready(function(){
+   $('#1').click(function(event){
+        event.preventDefault(); 
+       var url =this.value;
+        $('#system').load(url);
+   });
+
+   $('#2').click(function(event){
+        event.preventDefault(); 
+       var url =this.value;
+        $('#interfaces').load(url);
+   });
+
+   $('#3').click(function(event){
+        event.preventDefault(); 
+       var url =this.value;
+        $('#firewall').load(url);
+   });
+
+   $('#4').click(function(event){
+        event.preventDefault(); 
+       var url =this.value;
+        $('#services').load(url);
+   });
+
+   $('#5').click(function(event){
+        event.preventDefault(); 
+       var url =this.value;
+        $('#vpn').load(url);
+   });
+
+   $('#6').click(function(event){
+        event.preventDefault(); 
+       var url =this.value;
+        $('#status').load(url);
+   });
+
+   $('#7').click(function(event){
+        event.preventDefault(); 
+       var url =this.value;
+        $('#diagnostics').load(url);
+   });
+
+});
+</script>
+{% endblock javascripts %}

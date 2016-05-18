@@ -1,0 +1,39 @@
+{% extends app.request.isXmlHttpRequest? "base.html.twig" : "frontend.html.twig" %}
+
+
+{% block body%}
+<div class="col-md-12">
+    <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <tbody>
+            <th>Nombre Submenú</th>
+            <th>Nombre</th>
+            <th>Url</th>
+            <th>WD FIM</th>
+            <th>WD Firewall</th>
+            <th>WD Internet</th>
+            <th>&nbsp;</th>
+        </tbody>
+        {% for dato in datou %}
+        <tr>
+            <td>{{dato.submenu.nombre}}</td>
+            <td>{{dato.nombre}}</td>
+            <td>{{dato.url}}</td>
+            <td><input type="checkbox" value="{{dato.id}}" {% if  dato.producto1 == 1 %} checked="checked" {% endif %}/></td>
+            <td><input type="checkbox" value="{{dato.id}}" {% if  dato.producto2 == 1 %} checked="checked" {% endif %}/></td>
+            <td><input type="checkbox" value="{{dato.id}}" {% if  dato.producto3 == 1 %} checked="checked" {% endif %}/></td>
+            <td>
+                <a href="{{asset('admin/editurl')}}/{{dato.id}}" title="Editar" class="btn btn-outline btn-primary">Editar</a>
+                
+                <a href="{{asset('admin/deleturl')}}/{{dato.id}}" title="Eliminar" class="btn btn-outline btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</div>
+<div class="col-md-12">
+    <a href="{{asset('admin/addurl')}}" title="Agregar" class="btn btn-outline btn-success">Agregar</a>
+</div>
+{% endblock %}
+ 

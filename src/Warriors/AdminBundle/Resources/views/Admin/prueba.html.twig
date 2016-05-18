@@ -1,0 +1,68 @@
+{% extends '::frontend.html.twig' %}
+
+{% block title %}Lista Url{% endblock %}
+
+{% block body %}
+
+<div class="ibox-content">
+    
+<ol>
+  {% for prueba,dato in datosm %}
+      <li>  <a class=" btn"  href= "{{ path ('admin_pruebatabla', {'id': prueba }) }}">{{dato.nombre}}</a></li>
+  {% endfor %} 
+  </ol>
+
+
+        
+
+<div class="col-md-3">
+  <select class="form-control" id="system">
+    <option>Seleccione Submenú</option>
+    {% for prueba,dato in datosm %}
+       {% set a = dato.id %}
+    <option   value="{{ path ('admin_pruebatabla',{'id': a } ) }}">{{dato.nombre}}</option>  
+    {% endfor %}
+  </select>
+  <br />
+</div>
+
+<pre>
+ {% for dato in datosm %}
+    {% set a = dato.id %}
+      {{a}}
+  {% endfor %}
+  </pre>
+
+
+
+
+    <div id="ola">
+  
+    </div>
+
+</div>
+{% endblock %}
+
+{% block javascripts %}
+ <script type="text/javascript">
+
+$(document).ready(function(){
+   $('#system').click(function(event){
+        event.preventDefault(); 
+        var ola =this.value;
+        $('#ola').load(ola);
+        
+        alert(ola);
+   });
+
+
+
+    $('.btn').click(function(event){
+        event.preventDefault(); 
+        $('#ola').load($(this).attr('href')); 
+    });
+});
+
+</script>
+{% endblock javascripts %}
+ 

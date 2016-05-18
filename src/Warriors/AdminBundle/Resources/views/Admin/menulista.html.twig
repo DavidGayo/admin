@@ -1,0 +1,48 @@
+{% extends '::frontend.html.twig' %}
+
+{% block title %}Menu{% endblock %}
+
+{% block body %}
+
+<div class="ibox-content">
+<div class="row">
+ <h1>Lista Menú</h1><br />
+    <ol class="breadcrumb">
+        <li><a href="{{asset('admin/home')}}">Home</a></li>
+        <li class="active">Lista Menú</li>
+    </ol><hr /><br />
+    </div>
+     
+     {% for flashMessage in app.session.flashbag.get('mensaje') %}
+    <span class="alert-success">
+        {{ flashMessage }}
+        <br /><br />
+    </span>
+    {% endfor %}
+     
+    <div class="row">
+     <div class="col-md-12">   
+    <table class="table table-bordered table-striped table-hover">
+        <tbody>
+            <th>Nombre Menú</th>
+            <th>&nbsp;</th>
+        </tbody>
+        {% for dato in datom %}
+        <tr>
+            <td>{{dato.nombre}}</td>
+            <td>
+                 <a href="{{asset('admin/editmenu')}}/{{dato.id}}" title="Editar" class="btn btn-outline btn-primary">Editar</a>
+                
+                 <a href="{{asset('admin/deletemenu')}}/{{dato.id}}" title="Eliminar" class="btn btn-outline btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br /><br />
+ </div>
+</div>
+
+<a href="{{asset('admin/addmenu')}}" title="Agregar" class="btn btn-outline btn-success">Agregar</a>
+
+</div>
+{% endblock %}

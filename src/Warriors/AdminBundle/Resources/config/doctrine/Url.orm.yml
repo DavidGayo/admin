@@ -1,0 +1,31 @@
+Warriors\AdminBundle\Entity\Url:
+    type: entity
+    table: null
+    repositoryClass: Warriors\AdminBundle\Entity\UrlRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            length: '100'
+        url:
+            type: string
+            length: 255
+        producto1:
+            type: boolean
+            column: producto_1
+        producto2:
+            type: boolean
+            column: producto_2
+        producto3:
+            type: boolean
+            column: producto_3
+    manyToOne:
+        submenu:
+            targetEntity: Warriors\AdminBundle\Entity\Submenu
+            mappedBy: Url
+    lifecycleCallbacks: {  }

@@ -1,0 +1,41 @@
+{% extends '::frontend.html.twig' %}
+
+{% block title %}submenu{% endblock %}
+
+{% block body %}
+
+<div class="ibox-content">
+<div class="row">
+ <h1>Agregar Submenú</h1><br />
+    <ol class="breadcrumb">
+        <li><a href="{{asset('admin/listasubmenu')}}">Lista Submenús</a></li>
+        <li class="active">Agregar Submenú</li>
+    </ol><hr /><br />
+    </div>
+   
+   {% for flashMessage in app.session.flashbag.get('mensaje') %}
+    <span>
+        <h2 class="alert alert-info">{{ flashMessage }}</h2>
+        <br /><br />
+    </span>
+    {% endfor %}
+   <div class="row">
+    {{ form_start(form) }}
+    
+        <p>
+        Nombre : {{form_widget(form.nombre)}}
+        </p>
+
+          <p>
+        menu : {{form_widget(form.menu)}}
+        </p>
+        
+        <p>
+            {{form_widget(form.Guardar)}}
+        </p>
+        
+     {{ form_end(form) }}
+ </div>
+</div>
+
+{% endblock %}

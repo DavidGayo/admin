@@ -1,0 +1,35 @@
+{% extends '::frontend.html.twig' %}
+
+{% block title %}Editar Submenú{% endblock %}
+
+{% block body %}
+
+<div class="ibox-content">
+<div class="row">
+ <h1>Editar Submenú</h1><br />
+    <ol class="breadcrumb">
+        <li><a href="{{asset('')}}">Submenús</a></li>
+        <li class="active">Editar Submenú</li>
+    </ol><hr /><br />
+    </div>
+
+   <div class="row">
+    {{ form_start(form) }}
+    
+        <p>
+        Nombre : {{form_widget(form.nombre)}}
+        </p>
+
+          <p>
+        menu : {{form_widget(form.menu)}}
+        </p>
+        
+        <p>
+            {{form_widget(form.Guardar)}}
+        </p>
+        
+     {{ form_end(form) }}
+ </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends '::frontend.html.twig' %}
+
+{% block title %} Editar Menu{% endblock %}
+
+{% block body %}
+<div class="ibox-content">
+<div class="row">
+ <h1>Editar Menú</h1><br />
+    <ol class="breadcrumb">
+        <li><a href="{{asset('admin/listamenu')}}">Lista Menús</a></li>
+        <li class="active">Editar Menú</li>
+    </ol><hr /><br />
+    </div>
+     
+
+    <div class="row">
+    {{ form_start(form) }}
+    
+        <p>
+        Nombre : {{form_widget(form.nombre)}}
+        </p>
+        
+        <p>
+            {{form_widget(form.Guardar)}}
+        </p>
+        
+     {{ form_end(form) }}
+ </div>
+</div>
+{% endblock %}

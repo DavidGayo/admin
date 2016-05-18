@@ -1,0 +1,54 @@
+{% extends '::frontend.html.twig' %}
+
+{% block title %}Url{% endblock %}
+
+{% block body %}
+
+<div class="ibox-content">
+<div class="row">
+ <h1>Agregar Url</h1><br />
+    <ol class="breadcrumb">
+        <li><a href="{{asset('admin/listaurl')}}">Lista de Url</a></li>
+        <li class="active">Agregar url</li>
+    </ol><hr /><br />
+    </div>
+
+    {% for flashMessage in app.session.flashbag.get('mensaje') %}
+    <span>
+        <h2 class="alert alert-info">{{ flashMessage }}</h2>
+        <br /><br />
+    </span>
+    {% endfor %}
+
+
+   <div class="row">
+    {{ form_start(form) }}
+        
+        <p>
+        Submenu : {{form_widget(form.submenu)}}
+        </p>
+        <p>
+        Nombre : {{form_widget(form.nombre)}}
+        </p>
+        <p>
+        Url : {{form_widget(form.url)}}
+        </p>
+        <p>
+        Warriors D : {{form_widget(form.producto1)}}
+       &nbsp;&nbsp;
+        Warriors D : {{form_widget(form.producto2)}}
+       &nbsp;&nbsp;
+        Warriors D : {{form_widget(form.producto3)}}
+        </p>
+
+         
+        
+        <p>
+            {{form_widget(form.Guardar)}}
+        </p>
+        
+     {{ form_end(form) }}
+ </div>
+</div>
+
+{% endblock %}

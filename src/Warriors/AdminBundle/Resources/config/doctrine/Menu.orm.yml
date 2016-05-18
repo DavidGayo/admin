@@ -1,0 +1,15 @@
+Warriors\AdminBundle\Entity\Menu:
+    type: entity
+    table: null
+    repositoryClass: Warriors\AdminBundle\Entity\MenuRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            length: '100'
+    lifecycleCallbacks: {  }

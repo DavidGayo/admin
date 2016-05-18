@@ -1,0 +1,15 @@
+{% extends '::frontend.html.twig' %}
+
+{% block title %}Home{% endblock %}
+{% block body %}
+<div class="ibox-content">
+   {% for flashMessage in app.session.flashbag.get('mensaje') %}
+    <span>
+        <h2 class="alert alert-info">{{ flashMessage }}</h2>
+        <br />
+    </span>
+
+    {% endfor %}
+    <h1 class="text-danger">ola desde Home</h1>
+</div>
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends '::frontend.html.twig' %}
+
+{% block title %}Lista Url{% endblock %}
+
+{% block body %}
+
+     {% set url=( path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) ) %}
+     {% set system="/proyecto/web/admin/detalleurl/1/" %}
+     {% set interfaces="/proyecto/web/admin/detalleurl/2/" %}
+     {% set firewall="/proyecto/web/admin/detalleurl/3/" %} 
+     {% set services="/proyecto/web/admin/detalleurl/4/" %} 
+     {% set vpn="/proyecto/web/admin/detalleurl/5/" %} 
+     {% set status="/proyecto/web/admin/detalleurl/6/" %}   
+     {% set diagnostics="/proyecto/web/admin/detalleurl/7/" %} 
+
+<div class="ibox-content">
+<div class="row">
+ <h1>Lista Url</h1><br />
+    <ol class="breadcrumb">
+        <li><a href="{{asset('admin/home')}}">Home</a></li>
+        <li class="active">Lista Url</li>
+    </ol><hr /><br />
+    </div>
+
+    <div class="row">
+        <div class="col-xm-12 col-sm-12 col-md-12">
+            <div class="panel-heading">
+                <div class="panel-options">
+                    <ul class="nav nav-tabs">
+                        <li><a href="{{asset ('admin/listaurl')}}">Todo</a></li>
+                        <li {% if  system == url %} class="active" {% endif %}><a href="{{asset ('admin/detalleurl/1')}}">System</a></li>
+                        <li {% if  interfaces == url %} class="active" {% endif %}><a href="{{asset ('admin/detalleurl/2')}}">Interfaces</a></li>
+                        <li {% if  firewall == url %} class="active" {% endif %}><a href="{{asset ('admin/detalleurl/3')}}">Firewall</a></li>
+                        <li {% if  services == url %} class="active" {% endif %}><a href="{{asset ('admin/detalleurl/4')}}">Services</a></li>
+                        <li {% if  vpn == url %} class="active" {% endif %}><a href="{{asset ('admin/detalleurl/5')}}">VPN</a></li>
+                        <li {% if  status == url %} class="active" {% endif %}><a href="{{asset ('admin/detalleurl/6')}}">Status</a></li>
+                        <li {% if  diagnostics == url %} class="active" {% endif %}><a href="{{asset ('admin/detalleurl/7')}}">Diagnostics</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+     
+     {% for flashMessage in app.session.flashbag.get('mensaje') %}
+    <span class="alert-success">
+        {{ flashMessage }}
+        <br /><br />
+    </span>
+    {% endfor %}
+    
+<br />
+<div class="col-md-3">
+  <select class="form-control" id="system">
+    <option>Seleccione Submenú</option>
+    {% for prueba,dato in datosm %}
+       {% set a = dato.id %}
+    <option   value="{{ path ('admin_urltabla',{'id': a } ) }}">{{dato.nombre}}</option>  
+    {% endfor %}
+  </select>
+  <br />
+</div>
+
+    <div id="tabla" class="row" >
+
+    </div>
+
+
+</div>
+{% endblock %}
+ {% block javascripts %}
+  <script>
+   
+   $(document).ready(function(){
+   $('#system').click(function(event){
+        event.preventDefault(); 
+        var detalle =this.value;
+        $('#tabla').load(detalle);
+   });
+
+});
+</script>
+{% endblock javascripts %}

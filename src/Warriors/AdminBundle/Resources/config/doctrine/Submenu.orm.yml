@@ -1,0 +1,19 @@
+Warriors\AdminBundle\Entity\Submenu:
+    type: entity
+    table: null
+    repositoryClass: Warriors\AdminBundle\Entity\SubmenuRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            length: '100'
+    manyToOne:
+        menu:
+          targetEntity: Warriors\AdminBundle\Entity\Menu
+          mappedBy: Submenu
+    lifecycleCallbacks: {  }

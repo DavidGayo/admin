@@ -1,0 +1,78 @@
+{% extends '::frontend.html.twig' %}
+
+{% block title %}Lista Url{% endblock %}
+
+{% block body %}
+
+<div class="ibox-content">
+<div class="row">
+ <h1>Lista Url</h1><br />
+    <ol class="breadcrumb">
+        <li><a href="{{asset('admin/home')}}">Home</a></li>
+        <li class="active">Lista Url</li>
+    </ol><hr /><br />
+    </div>
+
+    <div class="row">
+        <div class="col-xm-12 col-sm-12 col-md-12">
+            <div class="panel-heading">
+                <div class="panel-options">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a>Todo</a></li>
+                        <li><a href="{{asset ('admin/detalleurl/1')}}">System</a></li>
+                        <li><a href="{{asset ('admin/detalleurl/2')}}">Interfaces</a></li>
+                        <li><a href="{{asset ('admin/detalleurl/3')}}">Firewall</a></li>
+                        <li><a href="{{asset ('admin/detalleurl/4')}}">Services</a></li>
+                        <li><a href="{{asset ('admin/detalleurl/5')}}">VPN</a></li>
+                        <li><a href="{{asset ('admin/detalleurl/6')}}">Status</a></li>
+                        <li><a href="{{asset ('admin/detalleurl/7')}}">Diagnostics</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+     
+   {% for flashMessage in app.session.flashbag.get('mensaje') %}
+    <span>
+        <h2 class="alert alert-info">{{ flashMessage }}</h2>
+        <br /><br />
+    </span>
+    {% endfor %}
+     
+  <br />
+  <div class="row">
+   <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <tbody>
+            <th>Nombre Submenú</th>
+            <th>Nombre</th>
+            <th>Url</th>
+            <th>WD FIM</th>
+            <th>WD Firewall</th>
+            <th>WD Internet</th>
+            <th>&nbsp;</th>
+        </tbody>
+        {% for dato in datou %}
+        <tr>
+            <td>{{dato.submenu.nombre}}</td>
+            <td>{{dato.nombre}}</td>
+            <td>{{dato.url}}</td>
+            <td><input type="checkbox" {% if  dato.producto1 == 1 %} checked="checked" {% endif %}/></td>
+            <td><input type="checkbox" {% if  dato.producto2 == 1 %} checked="checked" {% endif %}/></td>
+            <td><input type="checkbox" {% if  dato.producto3 == 1 %} checked="checked" {% endif %}/></td>
+            <td>
+                 <a href="{{asset('admin/editurl')}}/{{dato.id}}" title="Editar" class="btn btn-outline btn-primary">Editar</a>
+                
+                 <a href="{{asset('admin/deleteurl')}}/{{dato.id}}" title="Eliminar" class="btn btn-outline btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+    <br /><br />
+ </div>
+
+<a href="{{asset('admin/addurl')}}" title="Agregar" class="btn btn-outline btn-success">Agregar</a>
+
+</div>
+{% endblock %}

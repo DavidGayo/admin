@@ -1,0 +1,80 @@
+{% extends '::frontend.html.twig' %}
+
+{% block title %}Detalle Submenu{% endblock %}
+
+{% block body %}
+
+     {% set url=( path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) ) %}
+     {% set system="/proyecto/web/admin/detallesubmenu/1/" %}
+     {% set interfaces="/proyecto/web/admin/detallesubmenu/2/" %}
+     {% set firewall="/proyecto/web/admin/detallesubmenu/3/" %} 
+     {% set services="/proyecto/web/admin/detallesubmenu/4/" %} 
+     {% set vpn="/proyecto/web/admin/detallesubmenu/5/" %} 
+     {% set status="/proyecto/web/admin/detallesubmenu/6/" %}   
+     {% set diagnostics="/proyecto/web/admin/detallesubmenu/7/" %} 
+
+<div class="ibox-content">
+<div class="forum-item active">
+<div class="row">
+<div class="col-md-12">
+ <h1>Lista submenú</h1><br />
+    <ol class="breadcrumb">
+        <li><a href="{{asset('admin/home')}}">Home</a></li>
+        <li class="active">Detalle Sumenú</li>
+    </ol>
+    </div>
+</div>
+</div>
+     
+   
+
+     <div class="row">
+        <div class="col-xm-12 col-sm-12 col-md-12">
+            <div class="panel-heading">
+                <div class="panel-options">
+                    <ul class="nav nav-tabs">
+                        <li><a href="{{asset ('admin/listasubmenu')}}">Todo</a></li>
+                        <li {% if  system == url %} class="active" {% endif %}><a href="{{asset ('admin/detallesubmenu/1')}}">System</a></li>
+                        <li {% if  interfaces == url %} class="active" {% endif %}><a href="{{asset ('admin/detallesubmenu/2')}}">Interfaces</a></li>
+                        <li {% if  firewall == url %} class="active" {% endif %}><a href="{{asset ('admin/detallesubmenu/3')}}">Firewall</a></li>
+                        <li {% if  services == url %} class="active" {% endif %}><a href="{{asset ('admin/detallesubmenu/4')}}">Services</a></li>
+                        <li {% if  vpn == url %} class="active" {% endif %}><a href="{{asset ('admin/detallesubmenu/5')}}">VPN</a></li>
+                        <li {% if  status == url %} class="active" {% endif %}><a href="{{asset ('admin/detallesubmenu/6')}}">Status</a></li>
+                        <li {% if  diagnostics == url %} class="active" {% endif %}><a href="{{asset ('admin/detallesubmenu/7')}}">Diagnostics</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+    <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <tbody>
+            <th>Menú</th>
+            <th>Submenú</th>
+            <th>&nbsp;</th>
+        </tbody>
+        {% for dato in datosm %}
+        <tr>
+            <td>{{dato.menu.nombre}}</td>
+            <td>{{dato.nombre}}</td>
+            <td>
+                 <a href="{{asset('admin/editsubmenu')}}/{{dato.id}}" title="Editar" class="btn btn-outline btn-primary">Editar</a>
+                
+                 <a href="{{asset('admin/deletesubmenu')}}/{{dato.id}}" title="Eliminar" class="btn btn-outline btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+    <br /><br />
+ </div>
+</div>
+
+<a href="{{asset('admin/addsubmenu')}}" title="Agregar" class="btn btn-outline btn-success">Agregar</a>
+
+</div>
+{% endblock %}

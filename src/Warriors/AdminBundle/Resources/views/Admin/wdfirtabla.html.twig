@@ -1,0 +1,33 @@
+{% extends app.request.isXmlHttpRequest? "base.html.twig" : "frontend.html.twig" %}
+
+
+{% block body%}
+<div>
+     <div class="col-md-12">
+        <div class="table-responsive">
+         <table class="table table-striped table-bordered table-hover" >
+           <thead>
+             <tr>
+               <th>Nombre</th>
+               <th>url</th>
+               <th>WDFirewall</th>
+             </tr>
+           </thead>
+           <tbody>
+             {% for dato in datou %}
+                <tr>
+                    <td>{{dato.nombre}}</td>
+                    <td>{{dato.url}}</td>
+                    <td><input type="checkbox" value="{{dato.id}}" {% if  dato.producto2 == 1 %} checked="checked" {% endif %}/></td>
+                </tr>
+             {% endfor %}
+            </tbody>
+            <tfoot>
+                       
+            </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+ 

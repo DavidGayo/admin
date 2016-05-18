@@ -1,0 +1,119 @@
+admin_index:
+     path:      index
+     defaults: {_controller:AdminBundle:Warriors:index}
+
+admin_salir:
+     path:      admin/salir
+     defaults: {_controller:AdminBundle:Warriors:salir}
+
+admin_homepage:
+    path:     admin/home
+    defaults: { _controller: AdminBundle:Warriors:home }
+
+admin_menuadd:
+    path:     admin/addmenu
+    defaults: { _controller: AdminBundle:Warriors:menuadd }
+
+admin_menuedit:
+    path:     admin/editmenu/{id}
+    defaults: { _controller: AdminBundle:Warriors:menuedit }
+
+admin_menudelete:
+    path:     admin/deletemenu/{id}
+    defaults: { _controller: AdminBundle:Warriors:menudelete }
+
+admin_menulista:
+    path:     admin/listamenu
+    defaults: { _controller: AdminBundle:Vista:menulista }
+
+admin_submenuadd:
+    path:     admin/addsubmenu
+    defaults: { _controller: AdminBundle:Warriors:submenuadd }
+
+admin_submenuedit:
+    path:     admin/editsubmenu/{id}
+    defaults: { _controller: AdminBundle:Warriors:submenuedit }
+
+admin_submenudelete:
+    path:     admin/deletesubmenu/{id}
+    defaults: { _controller: AdminBundle:Warriors:submenudelete }
+
+admin_submenulista:
+    path:     admin/listasubmenu
+    defaults: { _controller: AdminBundle:Vista:submenulista }
+
+admin_submenudetalle:
+    path:     admin/detallesubmenu/{id}/
+    defaults: { _controller: AdminBundle:Vista:submenudetalle }
+
+admin_urladd:
+    path:     admin/addurl
+    defaults: { _controller: AdminBundle:Warriors:urladd }
+
+admin_urledit:
+    path:     admin/editurl/{id}
+    defaults: { _controller: AdminBundle:Warriors:urledit }
+
+admin_urldelete:
+    path:     admin/deleteurl/{id}
+    defaults: { _controller: AdminBundle:Warriors:urldelete }
+
+admin_urllista:
+    path:     admin/listaurl
+    defaults: { _controller: AdminBundle:Vista:urllista }
+
+admin_urldetalle:
+    path:     admin/detalleurl/{id}/
+    defaults: { _controller: AdminBundle:Vista:urldetalle }
+
+admin_urltabla:
+    path:     admin/urltabla/{id}
+    defaults: { _controller: AdminBundle:Vista:urltabla }
+
+admin_wdfim:
+    path:     admin/wdfim
+    defaults: { _controller: AdminBundle:Vista:wdfim }
+
+admin_wdfimselect:
+    path:     admin/producto/wdfimselect/{id}
+    defaults: { _controller: AdminBundle:Vista:wdfimselect }
+
+admin_wdfimtabla:
+    path:     admin/producto/wdfimtabla/{id}
+    defaults: { _controller: AdminBundle:Vista:wdfimtabla }
+
+admin_wdfir:
+    path:     admin/wdfir
+    defaults: { _controller: AdminBundle:Vista:wdfir }
+
+admin_wdfirselect:
+    path:     admin/producto/wdfirselect/{id}
+    defaults: { _controller: AdminBundle:Vista:wdfirselect }
+
+admin_wdfirtabla:
+    path:     admin/producto/wdfirtabla/{id}
+    defaults: { _controller: AdminBundle:Vista:wdfirtabla }
+
+admin_wdint:
+    path:     admin/wdint
+    defaults: { _controller: AdminBundle:Vista:wdint }
+
+admin_wdintselect:
+    path:     admin/producto/wdintselect/{id}
+    defaults: { _controller: AdminBundle:Vista:wdintselect }
+
+admin_wdinttabla:
+    path:     admin/producto/wdinttabla/{id}
+    defaults: { _controller: AdminBundle:Vista:wdinttabla }
+
+
+admin_prueba:
+    path:     admin/prueba
+    defaults: { _controller: AdminBundle:Prueba:prueba }
+
+
+
+
+admin_pruebatabla:
+    path:     admin/prueba/tabla/{id}
+    defaults: { _controller: AdminBundle:Prueba:pruebatabla }

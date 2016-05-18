@@ -1,0 +1,79 @@
+{% extends '::frontend.html.twig' %}
+
+{% block title %}Lista Submenu{% endblock %}
+
+{% block body %}
+
+<div class="ibox-content">
+<div class="forum-item active">
+<div class="row">
+<div class="col-md-12">
+ <h1>Lista submenú</h1><br />
+    <ol class="breadcrumb">
+        <li><a href="{{asset('admin/home')}}">Home</a></li>
+        <li class="active">Lista Submenú</li>
+    </ol>
+    </div>
+</div>
+</div>
+     
+   
+
+
+     <div class="row">
+        <div class="col-xm-12 col-sm-12 col-md-12">
+            <div class="panel-heading">
+                <div class="panel-options">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a>Todo</a></li>
+                        <li><a href="{{asset ('admin/detallesubmenu/1')}}">System</a></li>
+                        <li><a href="{{asset ('admin/detallesubmenu/2')}}">Interfaces</a></li>
+                        <li><a href="{{asset ('admin/detallesubmenu/3')}}">Firewall</a></li>
+                        <li><a href="{{asset ('admin/detallesubmenu/4')}}">Services</a></li>
+                        <li><a href="{{asset ('admin/detallesubmenu/5')}}">VPN</a></li>
+                        <li><a href="{{asset ('admin/detallesubmenu/6')}}">Status</a></li>
+                        <li><a href="{{asset ('admin/detallesubmenu/7')}}">Diagnostics</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+     {% for flashMessage in app.session.flashbag.get('mensaje') %}
+    <span>
+        <h2 class="alert alert-info">{{ flashMessage }}</h2>
+        <br /><br />
+    </span>
+    {% endfor %}
+     
+     <br />
+    <div class="row">
+    <div class="col-md-12">
+    <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <tbody>
+            <th>Menú</th>
+            <th>Submenú</th>
+            <th>&nbsp;</th>
+        </tbody>
+        {% for dato in datosm %}
+        <tr>
+            <td>{{dato.menu.nombre}}</td>
+            <td>{{dato.nombre}}</td>
+            <td>
+                 <a href="{{asset('admin/editsubmenu')}}/{{dato.id}}" title="Editar" class="btn btn-outline btn-primary">Editar</a>
+                
+                 <a href="{{asset('admin/deletesubmenu')}}/{{dato.id}}" title="Eliminar" class="btn btn-outline btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+    <br /><br />
+ </div>
+</div>
+
+<a href="{{asset('admin/addsubmenu')}}" title="Agregar" class="btn btn-outline btn-success">Agregar</a>
+
+</div>
+{% endblock %}

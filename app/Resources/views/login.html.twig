@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+        <meta http-equiv="charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %}</title>
+        {% block stylesheets %}
+        <link href="{{ asset ('public/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset ('public/font-awesome/css/font-awesome.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset ('public/css/animate.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset ('public/css/style.css') }}" type="text/css" rel="stylesheet" />
+        {% endblock %}
+        </head>
+        <body>
+ 
+        
+            <div class="gray-bg">
+                     {% block body %}
+        
+                     {% endblock %}  
+            </div>
+
+     
+        <script src="{{ asset ('public/js/jquery-2.1.1.js') }}" type="text/javascript"></script>
+        <script src="{{ asset ('public/js/bootstrap.min.js') }}" type="text/javascript"></script>
+     {% block javascripts %}
+     {% endblock javascripts %}
+    </body>
+</html> 
